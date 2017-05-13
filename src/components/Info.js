@@ -18,6 +18,9 @@ export default class Info extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native  & Andriod
         </Text>
+				<Text style={styles.welcome}>
+          Danko says Hello!
+        </Text>
         <Text style={[styles.instructions, styles.bigText]}>
           Info Page
         </Text>
