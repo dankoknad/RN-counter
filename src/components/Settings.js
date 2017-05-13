@@ -15,14 +15,11 @@ export default class Info extends Component {
   render() {
     return (
       <View style={styles.container}>
-				<Text style={styles.welcome}>
-          Danko says Hello!
-        </Text>
         <Text style={[styles.instructions, styles.bigText]}>
-          Info Page
+          Settings Page
         </Text>
         <Text style={styles.welcome}>
-          On this page user will be able to learn about counters (from wikipedia.org) and application developer.
+          On this page user will be able to {'\n'} lock/unlock slider and disable/enable buttons.
         </Text>
       </View>
     );

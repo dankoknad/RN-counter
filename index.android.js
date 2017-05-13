@@ -16,6 +16,7 @@ import {
 import { TabNavigator } from 'react-navigation';
 
 import Home from './src/components/Home';
+import Settings from './src/components/Settings';
 import Info from './src/components/Info';
 
 
@@ -34,6 +35,24 @@ class HomeScreen extends Component {
   render() {
     return (
     	<Home />				
+    );
+  }
+}
+
+class SettingsScreen extends React.Component {
+  static navigationOptions = {
+    tabBarLabel: 'Settings',
+    tabBarIcon: ({ tintColor }) => (
+      <Image
+        source={require('./settings-3-icon.png')}
+        style={[styles.icon]}
+      />
+    ),
+  };
+
+  render() {
+    return (
+      <Settings />
     );
   }
 }
@@ -67,6 +86,9 @@ const RNCounter = TabNavigator({
   Home: {
     screen: HomeScreen,
   },
+	Settings: {
+    screen: SettingsScreen,
+  },
   Info: {
     screen: InfoScreen,
   },
@@ -75,7 +97,7 @@ const RNCounter = TabNavigator({
     activeTintColor: '#fff',
 		showIcon: true,
 		labelStyle: {
-			fontSize: 20,
+			fontSize: 18,
 		},
 		style: {
 			// backgroundColor: '#673ab7',
