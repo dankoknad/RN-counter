@@ -9,36 +9,90 @@ import {
 	StyleSheet,
   AppRegistry,  
 	View,
+	Image,
+	Button,
 } from 'react-native';
 
-import Home from './src/components/Home'
+import { TabNavigator } from 'react-navigation';
 
-export default class RNCounter extends Component {
+import Home from './src/components/Home';
+import Info from './src/components/Info';
+
+/*export default class RNCounter extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View>
         <Home />
       </View>
+    );
+  }
+}*/
+
+
+class MyHomeScreen extends Component {
+  static navigationOptions = {
+    tabBarLabel: 'Counter',
+    // Note: By default the icon is only shown on iOS. Search the showIcon option below.
+    tabBarIcon: ({ tintColor }) => (
+      <Image
+        source={require('./home-icon.png')}
+        style={[styles.icon]}
+      />
+    ),
+  };
+
+  render() {
+    return (
+      <Button
+        onPress={() => this.props.navigation.navigate('Notifications')}
+        title="Go to info"
+      />
+    );
+  }
+}
+
+class MyNotificationsScreen extends React.Component {
+  static navigationOptions = {
+    tabBarLabel: 'Info',
+    tabBarIcon: ({ tintColor }) => (
+      <Image
+        source={require('./info-icon.png')}
+        style={[styles.icon]}
+      />
+    ),
+  };
+
+  render() {
+    return (
+      <Button
+        onPress={() => this.props.navigation.goBack()}
+        title="Go back to counter"
+      />
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  icon: {
+    width: 26,
+    height: 26,
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+});
+
+const RNCounter = TabNavigator({
+  Home: {
+    screen: MyHomeScreen,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  Notifications: {
+    screen: MyNotificationsScreen,
+  },
+}, {
+  tabBarOptions: {
+    activeTintColor: '#fff',
+		showIcon: true,
+		labelStyle: {
+			fontSize: 20,
+		},
   },
 });
 

@@ -19,7 +19,7 @@ export default class Home extends Component {
           Welcome to React Native  & Andriod
         </Text>
         <Text style={styles.instructions}>
-          Home Page
+          Home Page.
         </Text>
         <Text style={styles.instructions}>
           Double tap R on your keyboard to reload,{'\n'}
