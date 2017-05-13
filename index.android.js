@@ -18,16 +18,6 @@ import { TabNavigator } from 'react-navigation';
 import Home from './src/components/Home';
 import Info from './src/components/Info';
 
-/*export default class RNCounter extends Component {
-  render() {
-    return (
-      <View>
-        <Home />
-      </View>
-    );
-  }
-}*/
-
 
 class HomeScreen extends Component {
   static navigationOptions = {
@@ -86,6 +76,14 @@ const RNCounter = TabNavigator({
 		showIcon: true,
 		labelStyle: {
 			fontSize: 20,
+		},
+		style: {
+			// backgroundColor: '#673ab7',
+			backgroundColor: '#9a67ea',
+		},
+		indicatorStyle: {
+			backgroundColor: '#673ab7',
+			height: 5,
 		},
   },
 });

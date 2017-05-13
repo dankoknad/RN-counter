@@ -37,6 +37,8 @@ export default class Home extends Component {
 				</View>
 				<Slider
 					style={styles.slider}
+					maximumTrackTintColor={'#673ab7'}
+					thumbTintColor={'#673ab7'}
 					value={this.props.value}
 					minimumValue={1}
 					maximumValue={10}
@@ -61,12 +63,14 @@ const styles = StyleSheet.create({
 	result: {
     alignItems: 'center',
 		minWidth: 150,
-		borderRadius: 5,
-		backgroundColor: 'lightblue',
+		padding: 20,
+		borderRadius: 3,
+		// backgroundColor: 'lightblue',
+		backgroundColor: '#9a67ea',
 	},
 	resultText: {
+		color: '#fff',
 		fontSize: 40,
-		padding: 20,
 	},
   welcome: {
     fontSize: 20,
@@ -83,7 +87,7 @@ const styles = StyleSheet.create({
 	},
 	slider: {
 		alignSelf: 'stretch',
-    height: 30,
+    height: 50,
     margin: 10,
   },
 });
