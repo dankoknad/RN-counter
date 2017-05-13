@@ -18,7 +18,7 @@ export default class Info extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native  & Andriod
         </Text>
-        <Text style={styles.instructions}>
+        <Text style={[styles.instructions, styles.bigText]}>
           Info Page
         </Text>
         <Text style={styles.instructions}>
@@ -47,5 +47,8 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+	bigText: {
+		fontSize: 30,
+	}
 });
 

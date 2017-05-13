@@ -8,8 +8,11 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  View
+  View,
+	Button
 } from 'react-native';
+
+import { TabNavigator } from 'react-navigation';
 
 export default class Home extends Component {
   render() {
@@ -18,7 +21,7 @@ export default class Home extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native  & Andriod
         </Text>
-        <Text style={styles.instructions}>
+        <Text style={[styles.instructions, styles.bigText]}>
           Home Page.
         </Text>
         <Text style={styles.instructions}>
@@ -47,5 +50,8 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+	bigText: {
+		fontSize: 30,
+	}
 });
 

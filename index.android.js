@@ -29,7 +29,7 @@ import Info from './src/components/Info';
 }*/
 
 
-class MyHomeScreen extends Component {
+class HomeScreen extends Component {
   static navigationOptions = {
     tabBarLabel: 'Counter',
     // Note: By default the icon is only shown on iOS. Search the showIcon option below.
@@ -43,15 +43,12 @@ class MyHomeScreen extends Component {
 
   render() {
     return (
-      <Button
-        onPress={() => this.props.navigation.navigate('Notifications')}
-        title="Go to info"
-      />
+    	<Home />				
     );
   }
 }
 
-class MyNotificationsScreen extends React.Component {
+class InfoScreen extends React.Component {
   static navigationOptions = {
     tabBarLabel: 'Info',
     tabBarIcon: ({ tintColor }) => (
@@ -64,10 +61,7 @@ class MyNotificationsScreen extends React.Component {
 
   render() {
     return (
-      <Button
-        onPress={() => this.props.navigation.goBack()}
-        title="Go back to counter"
-      />
+      <Info />
     );
   }
 }
@@ -81,10 +75,10 @@ const styles = StyleSheet.create({
 
 const RNCounter = TabNavigator({
   Home: {
-    screen: MyHomeScreen,
+    screen: HomeScreen,
   },
-  Notifications: {
-    screen: MyNotificationsScreen,
+  Info: {
+    screen: InfoScreen,
   },
 }, {
   tabBarOptions: {
