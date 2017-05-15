@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const RNCounter = TabNavigator({
+const tabNavigatorConfigs = {
   Home: {
     screen: HomeScreen,
   },
@@ -92,7 +92,9 @@ const RNCounter = TabNavigator({
   Info: {
     screen: InfoScreen,
   },
-}, {
+}
+
+const tabBarOptions = {
   tabBarOptions: {
     activeTintColor: '#fff',
 		showIcon: true,
@@ -108,6 +110,8 @@ const RNCounter = TabNavigator({
 			height: 5,
 		},
   },
-});
+}
+
+const RNCounter = TabNavigator(tabNavigatorConfigs, tabBarOptions);
 
 AppRegistry.registerComponent('RNCounter', () => RNCounter);

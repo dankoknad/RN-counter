@@ -9,7 +9,7 @@ import {
   StyleSheet,
   Text,
   View,
-	TouchableHighlight,
+	TouchableOpacity,
 	Alert,
 } from 'react-native';
 
@@ -39,27 +39,42 @@ export default class Info extends Component {
 				<Text style={[styles.instructions, styles.bigText]}>
           Enable/disable buttons
         </Text>
+
 				<View style={styles.btnsContainer}>
-					<TouchableHighlight
+					<TouchableOpacity 
 						onPress={() => Alert.alert(
-            'Alert 01 Title',
-            'alertMessage',
-            [{text: 'Dismiss alert 01'}],
-          )}
+							'Alert 01 Title',
+							'alertMessage',
+							[{text: 'Dismiss alert 01'}],
+						)}
+						activeOpacity={.6}
 						style={styles.button}
 					>
 						<Text style={styles.btnText}>btn 01</Text>
-					</TouchableHighlight>
-					<TouchableHighlight 
+					</TouchableOpacity>
+					<TouchableOpacity 
 						onPress={() => Alert.alert(
-            'Alert 02 Title',
-            'alertMessage',
-            [{text: 'Dismiss alert 02'}],
-          )}
+							'Alert 02 Title',
+							'alertMessage',
+							[{text: 'Dismiss alert 02'}],
+						)}
+						disabled={true}
+						activeOpacity={.6}
 						style={styles.button}
 					>
-						<Text style={styles.btnText}>btn 02</Text>
-					</TouchableHighlight>
+						<Text style={styles.btnText}>btn 02 (disabled)</Text>
+					</TouchableOpacity>
+					<TouchableOpacity 
+						onPress={() => Alert.alert(
+							'Alert 03 Title',
+							'alertMessage',
+							[{text: 'Dismiss alert 03'}],
+						)}
+						activeOpacity={.6}
+						style={styles.button}
+					>
+						<Text style={styles.btnText}>btn 03</Text>
+					</TouchableOpacity>
 				</View>
       </View>
     );
@@ -97,13 +112,13 @@ const styles = StyleSheet.create({
 	},
 	button: {
 		marginHorizontal: 10,
+		backgroundColor: '#9a67ea',
 		borderRadius: 3,
 	},
 	btnText: {
 		padding: 10,
 		fontSize: 18,
 		color: '#fff',
-		backgroundColor: '#9a67ea'
 	}
 });
 

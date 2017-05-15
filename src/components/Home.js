@@ -11,6 +11,8 @@ import {
   View,
 	Button,
 	Slider,
+	TouchableOpacity,
+	Alert,
 } from 'react-native';
 
 import { TabNavigator } from 'react-navigation';
@@ -21,7 +23,8 @@ export default class Home extends Component {
   };
 
   state = {
-    value: this.props.value,
+    result: 0,
+		increment: 5,
   };
 
   render() {
@@ -32,22 +35,43 @@ export default class Home extends Component {
         </Text>
 				<View style={styles.result}> 
 					<Text style={styles.resultText}>
-						{this.state.value}
+						{this.state.result}
 					</Text>
 				</View>
+			
+				<Text style={styles.welcome}>
+          Drag slider to update increment
+        </Text>
 				<Slider
 					style={styles.slider}
+					trackStyle={styles.sliderTrack}
 					maximumTrackTintColor={'#673ab7'}
 					thumbTintColor={'#673ab7'}
-					value={this.props.value}
+					value={this.state.increment}
 					minimumValue={1}
 					maximumValue={10}
 					step={1}
-					onValueChange={(value) => this.setState({value: value})}
+					onValueChange={(value) => this.setState({increment: value})}
 				/>
-				<Text style={styles.welcome}>
-          Drag slider to update result
-        </Text>
+
+				<View style={styles.btnsContainer}>
+					<TouchableOpacity
+						onPress={() => this.setState({result: this.state.result - this.state.increment})}
+						activeOpacity={.6}
+						style={styles.button}
+					>
+						<Text style={styles.btnText}>- {this.state.increment}</Text>
+					</TouchableOpacity>
+					<TouchableOpacity 
+						onPress={() => this.setState({result: this.state.result + this.state.increment})}
+						disabled={!true}
+						activeOpacity={.6}
+						style={styles.button}
+					>
+						<Text style={styles.btnText}>+ {this.state.increment}</Text>
+					</TouchableOpacity>
+				</View>
+
       </View>
     );
   }
@@ -59,11 +83,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+    // backgroundColor: '#fff',
   },
 	result: {
     alignItems: 'center',
 		minWidth: 150,
 		padding: 20,
+		marginBottom: 20,
 		borderRadius: 3,
 		// backgroundColor: 'lightblue',
 		backgroundColor: '#9a67ea',
@@ -85,10 +111,30 @@ const styles = StyleSheet.create({
 	bigText: {
 		fontSize: 30,
 	},
+	btnsContainer: {
+		alignSelf: 'stretch',
+		flexDirection: 'row',
+		justifyContent: 'space-around',
+		marginHorizontal: 50,
+	},
+	button: {
+		backgroundColor: '#9a67ea',
+		borderRadius: 3,
+	},
+	btnText: {
+		padding: 20,
+		fontSize: 18,
+		color: '#fff',
+	},
 	slider: {
 		alignSelf: 'stretch',
+		marginBottom: 50,
     height: 50,
     margin: 10,
   },
+	sliderTrack: {
+		height: 15,
+		backgroundColor: 'red',
+	},
 });
 
