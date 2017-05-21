@@ -18,16 +18,8 @@ import {
 import { TabNavigator } from 'react-navigation';
 
 export default class Home extends Component {
-	static defaultProps = {
-    value: 2,
-  };
-
-  state = {
-    result: 0,
-		increment: 5,
-  };
-
   render() {
+		const {result, increment, onSubtract, onAdd, onIncrementChange} = this.props
     return (
       <View style={styles.container}>
         <Text style={[styles.instructions, styles.bigText]}>
@@ -35,40 +27,41 @@ export default class Home extends Component {
         </Text>
 				<View style={styles.result}> 
 					<Text style={styles.resultText}>
-						{this.state.result}
+						{result}
 					</Text>
 				</View>
-			
+				
 				<Text style={styles.welcome}>
-          Drag slider to update increment
+          Drag slider to update increment ({increment})
         </Text>
+
 				<Slider
 					style={styles.slider}
 					trackStyle={styles.sliderTrack}
 					maximumTrackTintColor={'#673ab7'}
 					thumbTintColor={'#673ab7'}
-					value={this.state.increment}
+					value={increment}
 					minimumValue={1}
 					maximumValue={10}
 					step={1}
-					onValueChange={(value) => this.setState({increment: value})}
+					onValueChange={(value) => onIncrementChange(value)}
 				/>
 
 				<View style={styles.btnsContainer}>
 					<TouchableOpacity
-						onPress={() => this.setState({result: this.state.result - this.state.increment})}
+						onPress={() => onSubtract(result, increment)}
 						activeOpacity={.6}
 						style={styles.button}
 					>
-						<Text style={styles.btnText}>- {this.state.increment}</Text>
+						<Text style={styles.btnText}>- {this.props.increment}</Text>
 					</TouchableOpacity>
 					<TouchableOpacity 
-						onPress={() => this.setState({result: this.state.result + this.state.increment})}
+						onPress={() => this.props.onAdd(this.props.result, this.props.increment)}
 						disabled={!true}
 						activeOpacity={.6}
 						style={styles.button}
 					>
-						<Text style={styles.btnText}>+ {this.state.increment}</Text>
+						<Text style={styles.btnText}>+ {this.props.increment}</Text>
 					</TouchableOpacity>
 				</View>
 
