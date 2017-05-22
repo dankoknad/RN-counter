@@ -10,7 +10,7 @@ import { TabNavigator, addNavigationHelpers } from 'react-navigation';
 
 import Home from './Home';
 import HomeContainer from '../containers/HomeContainer';
-import Settings from './Settings';
+import SettingsContainer from '../containers/SettingsContainer';
 import Info from './Info';
 
 
@@ -46,7 +46,7 @@ class SettingsScreen extends React.Component {
 
   render() {
     return (
-      <Settings />
+      <SettingsContainer />
     );
   }
 }

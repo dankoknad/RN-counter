@@ -1,26 +1,31 @@
 import { connect } from 'react-redux'
-import { add } from '../actions'
-import Home from '../components/Home'
+import { toggleAdd, toggleSubtract, toggleSlider } from '../actions'
+import Settings from '../components/Settings'
 
 
 const mapStateToProps = (state) => {
   return {
-		result: state.result,
-		increment: state.increment
+		isLocked: state.isLocked
   }
 }
 
-const mapDispatchToProps = (dispatch, state) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    onAdd: () => {
-      dispatch(add(state.result, state.increment))
+    onToggleAdd: (bool) => {
+      dispatch(toggleAdd(bool))
+    },
+		onToggleSubtract: (bool) => {
+      dispatch(toggleSubtract(bool))
+    },
+		onToggleSlider: (bool) => {
+      dispatch(toggleSlider(bool))
     }
   }
 }
 
 const SettingsContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
-)(Home)
+	mapDispatchToProps
+)(Settings)
 
 export default SettingsContainer

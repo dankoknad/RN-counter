@@ -9,6 +9,7 @@ import {
 	Slider,
 	TouchableOpacity,
 	Alert,
+	Image
 } from 'react-native';
 
 import { TabNavigator } from 'react-navigation';
@@ -16,7 +17,7 @@ import { VerticalSeparator } from './common/VerticalSeparator'
 
 export default class Home extends Component {
   render() {
-		const {result, increment, onSubtract, onAdd, onResetResult, onIncrementChange} = this.props
+		const {result, increment, onSubtract, onAdd, onResetResult, onIncrementChange, isLocked} = this.props
     return (
       <ScrollView style={styles.container}>
 
@@ -44,9 +45,11 @@ export default class Home extends Component {
 					</View>
 				
 				</View>
+
+				<VerticalSeparator height={30}/>
 				
 				<Text style={styles.welcome}>
-          Drag slider to update increment ({increment})
+           {isLocked.slider ? `Unlock slider on settings page\n(current increment: ${increment})` : `Drag slider to update increment (${increment})` }
         </Text>
 
 				<Slider
@@ -59,6 +62,7 @@ export default class Home extends Component {
 					maximumValue={10}
 					step={1}
 					onValueChange={(value) => onIncrementChange(value)}
+					disabled={isLocked.slider}
 				/>
 
 				<View style={styles.btnsContainer}>
@@ -66,16 +70,18 @@ export default class Home extends Component {
 						onPress={() => onSubtract(result, increment)}
 						activeOpacity={.6}
 						style={styles.button}
+						disabled={isLocked.subtractBtn}
 					>
-						<Text style={styles.btnText}>- {increment}</Text>
+						<Text style={styles.btnText}>{isLocked.subtractBtn ? <Image source={require('../icons/locked-icon.png')} style={styles.lockerIcon}/> : `- ${increment}`}</Text>
 					</TouchableOpacity>
 					<TouchableOpacity 
 						onPress={() => onAdd(result, increment)}
 						disabled={!true}
 						activeOpacity={.6}
 						style={styles.button}
+						disabled={isLocked.addBtn}
 					>
-						<Text style={styles.btnText}>+ {increment}</Text>
+						<Text style={styles.btnText}>{isLocked.addBtn ? <Image source={require('../icons/locked-icon.png')} style={styles.lockerIcon}/> : `+ ${increment}`}</Text>
 					</TouchableOpacity>
 				</View>
 
@@ -147,6 +153,7 @@ const styles = StyleSheet.create({
 	button: {
 		backgroundColor: '#9a67ea',
 		borderRadius: 3,
+		justifyContent: 'center'
 	},
 	btnText: {
 		padding: 20,
@@ -163,5 +170,9 @@ const styles = StyleSheet.create({
 		height: 15,
 		backgroundColor: 'red',
 	},
+	lockerIcon: {
+		width: 50, 
+		height: 50
+	}
 });
 

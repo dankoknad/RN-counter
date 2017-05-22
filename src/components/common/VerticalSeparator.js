@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 
-export const VerticalSeparator = ({height}) => <View style={{height: height}} />
+export const VerticalSeparator = ({height}) => <View style={{height}} />
 

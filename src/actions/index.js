@@ -26,3 +26,27 @@ export const changeIncrement = (value) => {
     increment: value
   }
 }
+
+// TOGGLE_ADD
+export const toggleAdd = (bool) => {
+  return {
+    type: 'TOGGLE_ADD',
+    bool: bool
+  }
+}
+
+// TOGGLE_SUBTRACT
+export const toggleSubtract = (bool) => {
+  return {
+    type: 'TOGGLE_SUBTRACT',
+    bool: bool
+  }
+}
+
+// TOGGLE_SLIDER
+export const toggleSlider = (bool) => {
+  return {
+    type: 'TOGGLE_SLIDER',
+    bool: bool
+  }
+}

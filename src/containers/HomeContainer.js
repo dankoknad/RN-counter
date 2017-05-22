@@ -6,7 +6,8 @@ import Home from '../components/Home'
 const mapStateToProps = (state) => {
   return {
 		result: state.result,
-		increment: state.increment
+		increment: state.increment,
+		isLocked: state.isLocked
   }
 }
 
