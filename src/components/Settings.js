@@ -7,9 +7,10 @@ import {
   ScrollView,
 	TouchableOpacity,
 	Alert,
+	Switch
 } from 'react-native';
 
-import VerticalSeparator from './common/VerticalSeparator'
+import { VerticalSeparator } from './common/VerticalSeparator'
 
 export default class Info extends Component {
   render() {
@@ -20,9 +21,41 @@ export default class Info extends Component {
         <Text style={[styles.instructions, styles.bigText]}>
           Settings Page{'\n'}says Hello!
         </Text>
+
         <Text style={styles.welcome}>
           On this page user will be able to{'\n'}lock/unlock slider and disable/enable buttons.
         </Text>
+				
+				<Text style={[styles.instructions, styles.bigText]}>
+          Enable/disable buttons
+        </Text>
+
+				<VerticalSeparator height={30}/>
+
+				<View style={styles.switchBtnRow}>
+					<Text style={styles.mediumText}>Lock add button</Text>
+					<Switch 
+						onValueChange={(value) => console.log(value)}
+          	value={false}
+					/>
+				</View>
+				<View style={styles.switchBtnRow}>
+					<Text style={styles.mediumText}>Lock subtract button</Text>
+					<Switch 
+						onValueChange={(value) => console.log(value)}
+          	value={true}
+					/>
+				</View>
+				<View style={styles.switchBtnRow}>
+					<Text style={styles.mediumText}>Lock slider</Text>
+					<Switch 
+						onValueChange={(value) => console.log(value)}
+          	value={false}
+					/>
+				</View>
+
+				<VerticalSeparator height={70}/>
+
 				<Text style={[styles.instructions, styles.bigText]}>
           Slider settings
         </Text>
@@ -36,46 +69,6 @@ export default class Info extends Component {
           Steps: 1
         </Text>
 
-				<Text style={[styles.instructions, styles.bigText]}>
-          Enable/disable buttons
-        </Text>
-
-				<View style={styles.btnsContainer}>
-					<TouchableOpacity 
-						onPress={() => Alert.alert(
-							'Alert 01 Title',
-							'alertMessage',
-							[{text: 'Dismiss alert 01'}],
-						)}
-						activeOpacity={.6}
-						style={styles.button}
-					>
-						<Text style={styles.btnText}>btn 01</Text>
-					</TouchableOpacity>
-					<TouchableOpacity 
-						onPress={() => Alert.alert(
-							'Alert 02 Title',
-							'alertMessage',
-							[{text: 'Dismiss alert 02'}],
-						)}
-						disabled={true}
-						activeOpacity={.6}
-						style={styles.button}
-					>
-						<Text style={styles.btnText}>btn 02 (disabled)</Text>
-					</TouchableOpacity>
-					<TouchableOpacity 
-						onPress={() => Alert.alert(
-							'Alert 03 Title',
-							'alertMessage',
-							[{text: 'Dismiss alert 03'}],
-						)}
-						activeOpacity={.6}
-						style={styles.button}
-					>
-						<Text style={styles.btnText}>btn 03</Text>
-					</TouchableOpacity>
-				</View>
 
 				<VerticalSeparator height={30}/>
 				
@@ -99,6 +92,9 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+	mediumText: {
+		fontSize: 20,
+	},
 	bigText: {
 		fontSize: 30,
 	},
@@ -106,20 +102,13 @@ const styles = StyleSheet.create({
 		alignSelf: 'stretch',
 		paddingHorizontal: 20,
 	},
-	btnsContainer: {
-		alignSelf: 'stretch',
-		flexDirection: 'row',
-		justifyContent: 'center',
-	},
-	button: {
-		marginHorizontal: 10,
-		backgroundColor: '#9a67ea',
-		borderRadius: 3,
-	},
-	btnText: {
-		padding: 10,
-		fontSize: 18,
-		color: '#fff',
+	switchBtnRow: {
+		flexDirection: 'row', 
+		justifyContent: 'space-between', 
+		alignItems: 'center', 
+		height: 50,
+		// backgroundColor: 'green',
+		marginHorizontal: 15
 	}
 });
 

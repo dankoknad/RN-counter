@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 
 import { TabNavigator } from 'react-navigation';
-import VerticalSeparator from './common/VerticalSeparator'
+import { VerticalSeparator } from './common/VerticalSeparator'
 
 export default class Home extends Component {
   render() {
