@@ -18,10 +18,10 @@ export default class Info extends Component {
     return (
       <View style={styles.container}>
         <Text style={[styles.instructions, styles.bigText]}>
-          Settings Page
+          Settings Page{'\n'}says Hello!
         </Text>
         <Text style={styles.welcome}>
-          On this page user will be able to {'\n'} lock/unlock slider and disable/enable buttons.
+          On this page user will be able to{'\n'}lock/unlock slider and disable/enable buttons.
         </Text>
 				<Text style={[styles.instructions, styles.bigText]}>
           Slider settings

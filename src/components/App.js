@@ -10,7 +10,7 @@ const initState = {
 	increment: 2
 }
 
-const store = createStore(reducers, initState)
+const store = createStore(reducers)
 
 
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { add, subtract, changeIncrement } from '../actions'
+import { add, subtract, resetResult, changeIncrement } from '../actions'
 import Home from '../components/Home'
 
 
@@ -17,6 +17,9 @@ const mapDispatchToProps = (dispatch) => {
     },
 		onSubtract: (result, increment) => {
       dispatch(subtract(result, increment))
+    },
+		onResetResult: () => {
+      dispatch(resetResult())
     },
 		onIncrementChange: (value) => {
 			dispatch(changeIncrement(value))

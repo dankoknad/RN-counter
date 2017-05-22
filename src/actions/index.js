@@ -13,6 +13,13 @@ export const subtract = (result, increment) => {
   }
 }
 
+export const resetResult = (result, increment) => {
+  return {
+    type: 'RESET_RESULT',
+    result: 0
+  }
+}
+
 export const changeIncrement = (value) => {
   return {
     type: 'CHANGE_INCREMENT',

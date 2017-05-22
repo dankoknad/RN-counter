@@ -1,4 +1,5 @@
-const increment = (state = 4, action) => {
+const increment = (state = 5, action) => {
+	console.log(action);
   switch (action.type) {
     case 'CHANGE_INCREMENT':
       return action.increment

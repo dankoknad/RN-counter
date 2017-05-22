@@ -19,16 +19,30 @@ import { TabNavigator } from 'react-navigation';
 
 export default class Home extends Component {
   render() {
-		const {result, increment, onSubtract, onAdd, onIncrementChange} = this.props
+		const {result, increment, onSubtract, onAdd, onResetResult, onIncrementChange} = this.props
     return (
       <View style={styles.container}>
         <Text style={[styles.instructions, styles.bigText]}>
           Home Page.
         </Text>
-				<View style={styles.result}> 
-					<Text style={styles.resultText}>
-						{result}
-					</Text>
+				
+				<View style={styles.resultContainer}>
+
+					<TouchableOpacity 
+							onPress={() => onResetResult()}
+							disabled={!true}
+							activeOpacity={.6}
+							style={styles.resetBtn}
+						>
+							<Text style={styles.resetBtnText}> reset</Text>
+						</TouchableOpacity>
+						
+					<View style={styles.result}> 
+						<Text style={styles.resultText}>
+							{result}
+						</Text>
+					</View>
+				
 				</View>
 				
 				<Text style={styles.welcome}>
@@ -75,17 +89,32 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-    // backgroundColor: '#fff',
+    backgroundColor: '#F5FCFF'
   },
+	resultContainer: {
+		flexDirection: 'row',
+		alignSelf: 'stretch',
+    justifyContent: 'center',
+    alignItems: 'center',
+		// backgroundColor: 'red'
+	},
+	resetBtn: {
+		alignSelf: 'center',
+		left: -70,
+		// backgroundColor: 'orange',
+		borderRadius: 3
+	},
+	resetBtnText: {
+		fontSize: 18,
+		padding: 10
+	},
 	result: {
     alignItems: 'center',
-		minWidth: 150,
+		minWidth: 120,
 		padding: 20,
-		marginBottom: 20,
 		borderRadius: 3,
-		// backgroundColor: 'lightblue',
 		backgroundColor: '#9a67ea',
+		right: 30
 	},
 	resultText: {
 		color: '#fff',

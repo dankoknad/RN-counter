@@ -4,6 +4,8 @@ const result = (state = 0, action) => {
       return action.result
 		case 'SUBTRACT':
       return action.result
+		case 'RESET_RESULT':
+      return action.result
     default:
       return state
   }
