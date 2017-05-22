@@ -1,14 +1,10 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 
 import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
   View,
+	ScrollView,
 	Button,
 	Slider,
 	TouchableOpacity,
@@ -16,12 +12,16 @@ import {
 } from 'react-native';
 
 import { TabNavigator } from 'react-navigation';
+import VerticalSeparator from './common/VerticalSeparator'
 
 export default class Home extends Component {
   render() {
 		const {result, increment, onSubtract, onAdd, onResetResult, onIncrementChange} = this.props
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
+
+				<VerticalSeparator height={70}/>
+
         <Text style={[styles.instructions, styles.bigText]}>
           Home Page.
         </Text>
@@ -67,19 +67,21 @@ export default class Home extends Component {
 						activeOpacity={.6}
 						style={styles.button}
 					>
-						<Text style={styles.btnText}>- {this.props.increment}</Text>
+						<Text style={styles.btnText}>- {increment}</Text>
 					</TouchableOpacity>
 					<TouchableOpacity 
-						onPress={() => this.props.onAdd(this.props.result, this.props.increment)}
+						onPress={() => onAdd(result, increment)}
 						disabled={!true}
 						activeOpacity={.6}
 						style={styles.button}
 					>
-						<Text style={styles.btnText}>+ {this.props.increment}</Text>
+						<Text style={styles.btnText}>+ {increment}</Text>
 					</TouchableOpacity>
 				</View>
 
-      </View>
+				<VerticalSeparator height={20}/>
+
+      </ScrollView>
     );
   }
 }
@@ -87,10 +89,13 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
     backgroundColor: '#F5FCFF'
   },
+	vertical50: {
+		height: 50
+	},
 	resultContainer: {
 		flexDirection: 'row',
 		alignSelf: 'stretch',

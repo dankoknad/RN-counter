@@ -1,22 +1,22 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 
 import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
   View,
+  ScrollView,
 	TouchableOpacity,
 	Alert,
 } from 'react-native';
 
+import VerticalSeparator from './common/VerticalSeparator'
+
 export default class Info extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
+				<VerticalSeparator height={70}/>
+
         <Text style={[styles.instructions, styles.bigText]}>
           Settings Page{'\n'}says Hello!
         </Text>
@@ -76,7 +76,10 @@ export default class Info extends Component {
 						<Text style={styles.btnText}>btn 03</Text>
 					</TouchableOpacity>
 				</View>
-      </View>
+
+				<VerticalSeparator height={30}/>
+				
+      </ScrollView>
     );
   }
 }
@@ -84,8 +87,6 @@ export default class Info extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
