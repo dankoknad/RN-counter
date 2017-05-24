@@ -4,10 +4,13 @@ import {
   StyleSheet,
   Text,
 	ScrollView,
-  View
+  View,
+	Image,
+	Dimensions
 } from 'react-native';
 
 import { VerticalSeparator } from './common/VerticalSeparator'
+import { LocalImage } from './common/LocalImage'
 
 export default class Info extends Component {
   render() {
@@ -16,17 +19,32 @@ export default class Info extends Component {
 				<VerticalSeparator height={70} />
 
         <Text style={[styles.instructions, styles.bigText]}>
-          About Counter
+          Tally counter
         </Text>
 
 				<VerticalSeparator height={20} />
 
         <Text style={styles.commonText}>
-          On this page user will be able to learn about counters (from wikipedia.org) and application developer.
+          A tally counter is a mechanical, electronic, or software device used to incrementally count something, typically fleeting. One of the most common things tally counters are used for is counting people, animals, or things that are quickly coming and going from some location.
         </Text>
+				
+				<LocalImage
+          source={require('../img/mechanical_tally_counters.jpg')}
+					originalWidth={800}
+					originalHeight={600}
+        />
+
 				<Text style={styles.commonText}>
           On this page user will be able to learn about counters (from wikipedia.org) and application developer.
         </Text>
+
+				<LocalImage
+          source={require('../img/digital_tally_counter.jpg')}
+					originalWidth={449}
+					originalHeight={599}
+        />
+
+				<VerticalSeparator height={70} />
 
       </ScrollView>
     );
