@@ -45,7 +45,7 @@ export default class Home extends Component {
 				<VerticalSeparator height={30}/>
 				
 				<Text style={styles.welcome}>
-           {isLocked.slider ? `Unlock slider on settings page\n(current increment: ${increment})` : `Drag slider to update increment (${increment})` }
+           {isLocked.slider ? `Slider is locked (${increment})\n You can unlock it on settings page` : `Drag slider to update increment (${increment})` }
         </Text>
 
 				<Slider

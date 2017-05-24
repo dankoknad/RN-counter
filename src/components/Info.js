@@ -64,8 +64,8 @@ export default class Info extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-		marginHorizontal: 15,
-    backgroundColor: 'white'
+		paddingHorizontal: 15,
+    backgroundColor: '#fff'
   },
   commonText: {
     fontSize: 18,
