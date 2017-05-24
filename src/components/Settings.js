@@ -48,7 +48,7 @@ export default class Info extends Component {
 					/>
 				</View>
 
-				<VerticalSeparator height={30}/>
+				<VerticalSeparator height={30} />
 				
 				<View style={styles.fullWidth}>
 					<Text style={[styles.instructions, styles.bigText]}>
@@ -77,7 +77,7 @@ export default class Info extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#fff',
   },
   welcome: {
     fontSize: 20,

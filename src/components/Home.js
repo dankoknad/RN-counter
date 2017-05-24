@@ -91,9 +91,7 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#fff'
   },
 	vertical50: {
 		height: 50
@@ -103,12 +101,10 @@ const styles = StyleSheet.create({
 		alignSelf: 'stretch',
     justifyContent: 'center',
     alignItems: 'center',
-		// backgroundColor: 'red'
 	},
 	resetBtn: {
 		alignSelf: 'center',
 		left: -70,
-		// backgroundColor: 'orange',
 		borderRadius: 3
 	},
 	resetBtnText: {

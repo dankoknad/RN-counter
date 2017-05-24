@@ -1,8 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 
 import React, { Component } from 'react';
 import {
@@ -12,69 +7,27 @@ import {
   View
 } from 'react-native';
 
+import { VerticalSeparator } from './common/VerticalSeparator'
+
 export default class Info extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-				<Text style={styles.welcome}>
-          Danko says Hello!
-        </Text>
+				<VerticalSeparator height={70} />
+
         <Text style={[styles.instructions, styles.bigText]}>
-          Info Page
+          About Counter
         </Text>
-        <Text style={styles.welcome}>
+
+				<VerticalSeparator height={20} />
+
+        <Text style={styles.commonText}>
+          On this page user will be able to learn about counters (from wikipedia.org) and application developer.
+        </Text>
+				<Text style={styles.commonText}>
           On this page user will be able to learn about counters (from wikipedia.org) and application developer.
         </Text>
 
-				<Text style={styles.welcome}>
-          Danko says Hello!
-        </Text>
-        <Text style={[styles.instructions, styles.bigText]}>
-          Info Page
-        </Text>
-        <Text style={styles.welcome}>
-          On this page user will be able to learn about counters (from wikipedia.org) and application developer.
-        </Text>
-
-				<Text style={styles.welcome}>
-          Danko says Hello!
-        </Text>
-        <Text style={[styles.instructions, styles.bigText]}>
-          Info Page
-        </Text>
-        <Text style={styles.welcome}>
-          On this page user will be able to learn about counters (from wikipedia.org) and application developer.
-        </Text>
-
-				<Text style={styles.welcome}>
-          Danko says Hello!
-        </Text>
-        <Text style={[styles.instructions, styles.bigText]}>
-          Info Page
-        </Text>
-        <Text style={styles.welcome}>
-          On this page user will be able to learn about counters (from wikipedia.org) and application developer.
-        </Text>
-
-				<Text style={styles.welcome}>
-          Danko says Hello!
-        </Text>
-        <Text style={[styles.instructions, styles.bigText]}>
-          Info Page
-        </Text>
-        <Text style={styles.welcome}>
-          On this page user will be able to learn about counters (from wikipedia.org) and application developer.
-        </Text>
-
-				<Text style={styles.welcome}>
-          Danko says Hello!
-        </Text>
-        <Text style={[styles.instructions, styles.bigText]}>
-          Info Page
-        </Text>
-        <Text style={styles.welcome}>
-          On this page user will be able to learn about counters (from wikipedia.org) and application developer.
-        </Text>
       </ScrollView>
     );
   }
@@ -83,19 +36,16 @@ export default class Info extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+		marginHorizontal: 15,
+    backgroundColor: 'white'
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  commonText: {
+    fontSize: 18,
+		marginBottom: 10
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    color: '#333'
   },
 	bigText: {
 		fontSize: 30,
