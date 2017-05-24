@@ -19,14 +19,6 @@ export default class Info extends Component {
     return (
       <ScrollView style={styles.container}>
 				<VerticalSeparator height={70}/>
-
-        <Text style={[styles.instructions, styles.bigText]}>
-          Settings Page{'\n'}says Hello!
-        </Text>
-
-        <Text style={styles.welcome}>
-          On this page user will be able to{'\n'}lock/unlock slider and disable/enable buttons.
-        </Text>
 				
 				<Text style={[styles.instructions, styles.bigText]}>
           Enable/disable buttons

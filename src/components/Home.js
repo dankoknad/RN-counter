@@ -22,10 +22,6 @@ export default class Home extends Component {
       <ScrollView style={styles.container}>
 
 				<VerticalSeparator height={70}/>
-
-        <Text style={[styles.instructions, styles.bigText]}>
-          Home Page.
-        </Text>
 				
 				<View style={styles.resultContainer}>
 
@@ -136,14 +132,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 15,
-  },
-	bigText: {
-		fontSize: 30,
-	},
 	btnsContainer: {
 		alignSelf: 'stretch',
 		flexDirection: 'row',
