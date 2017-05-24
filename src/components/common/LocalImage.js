@@ -21,4 +21,3 @@ LocalImage.propTypes = {
 	originalWidth: PropTypes.number,
 	originalHeight: PropTypes.number
 }
-

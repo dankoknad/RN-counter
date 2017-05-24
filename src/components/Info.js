@@ -16,7 +16,7 @@ export default class Info extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-				<VerticalSeparator height={70} />
+				<VerticalSeparator height={50} />
 
         <Text style={[styles.instructions, styles.bigText]}>
           Tally counter
@@ -28,14 +28,20 @@ export default class Info extends Component {
           A tally counter is a mechanical, electronic, or software device used to incrementally count something, typically fleeting. One of the most common things tally counters are used for is counting people, animals, or things that are quickly coming and going from some location.
         </Text>
 				
+				<Text style={styles.commonText}>
+          Mechanical tally counter:
+        </Text>
+
 				<LocalImage
           source={require('../img/mechanical_tally_counters.jpg')}
 					originalWidth={800}
 					originalHeight={600}
         />
 
+				<VerticalSeparator height={10} />
+
 				<Text style={styles.commonText}>
-          On this page user will be able to learn about counters (from wikipedia.org) and application developer.
+          Digital tally counter:
         </Text>
 
 				<LocalImage
@@ -44,7 +50,11 @@ export default class Info extends Component {
 					originalHeight={599}
         />
 
-				<VerticalSeparator height={70} />
+				<VerticalSeparator height={20} />
+
+				<Text>Source: wikipedia.org</Text>
+
+				<VerticalSeparator height={20} />
 
       </ScrollView>
     );
@@ -63,7 +73,6 @@ const styles = StyleSheet.create({
   },
   instructions: {
     textAlign: 'center',
-    color: '#333'
   },
 	bigText: {
 		fontSize: 30,

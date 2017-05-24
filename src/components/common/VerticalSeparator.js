@@ -14,4 +14,3 @@ VerticalSeparator.propTypes = {
 	height: PropTypes.number,
 	visible: PropTypes.bool
 }
-

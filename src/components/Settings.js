@@ -18,7 +18,7 @@ export default class Info extends Component {
 		console.log(isLocked);
     return (
       <ScrollView style={styles.container}>
-				<VerticalSeparator height={70}/>
+				<VerticalSeparator height={50}/>
 				
 				<Text style={[styles.instructions, styles.bigText]}>
           Enable/disable buttons
@@ -67,6 +67,23 @@ export default class Info extends Component {
 
 				</View>
 
+				<View style={styles.fullWidth}>
+					<Text style={[styles.instructions, styles.bigText]}>
+						Todo:
+					</Text>
+					<VerticalSeparator height={10}/>
+					<Text style={styles.mediumText}>
+						1. allow position righ for reset button
+					</Text>
+					<Text style={styles.mediumText}>
+						2. add sound (+ on/off) on pressing the buttons
+					</Text>
+					<Text style={styles.mediumText}>
+						3. slider settings controls
+					</Text>
+
+				</View>
+
 				<VerticalSeparator height={30}/>
 				
       </ScrollView>
@@ -86,7 +103,6 @@ const styles = StyleSheet.create({
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
     marginBottom: 5,
   },
 	mediumText: {
@@ -104,7 +120,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between', 
 		alignItems: 'center', 
 		height: 50,
-		// backgroundColor: 'green',
 		marginHorizontal: 15
 	}
 });
