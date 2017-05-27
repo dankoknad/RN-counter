@@ -10,8 +10,6 @@ import {
 	Switch
 } from 'react-native';
 
-import CheckBox from 'react-native-checkbox';
-
 import { VerticalSeparator } from './common/VerticalSeparator'
 
 export default class Info extends Component {
@@ -48,14 +46,15 @@ export default class Info extends Component {
           	value={isLocked.slider}
 					/>
 				</View>
+
+				<VerticalSeparator height={1} fill={'#e0e0d1'} />
+				
 				<View style={[styles.switchBtnRow]}>
 					<Text style={styles.mediumText}>Move reset button to the right</Text>
-					<CheckBox
-						label={false}
-						checkboxStyle={{position: 'relative', left: 15}}
-						checked={isResetBtnOnRightSide}
-						onChange={(checked) => onChangeResetBtnPosition(!checked)}
-					/>					
+					<Switch 
+						onValueChange={(bool) => onChangeResetBtnPosition(bool)}
+          	value={isResetBtnOnRightSide}
+					/>
 				</View>
 				
 				<VerticalSeparator height={30} />
@@ -104,6 +103,7 @@ export default class Info extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+		paddingHorizontal: 15,
     backgroundColor: '#fff',
   },
   welcome: {
@@ -123,14 +123,12 @@ const styles = StyleSheet.create({
 	},
 	fullWidth: {
 		alignSelf: 'stretch',
-		paddingHorizontal: 20,
 	},
 	switchBtnRow: {
 		flexDirection: 'row', 
 		justifyContent: 'space-between', 
 		alignItems: 'center', 
-		height: 50,
-		marginHorizontal: 15
+		height: 50
 	}
 });
 

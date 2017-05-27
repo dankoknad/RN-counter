@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
 
-export const VerticalSeparator = ({height, visible}) => (
-	<View style={[{height}, visible ? background : null]} />
+export const VerticalSeparator = ({height, visible, fill}) => (
+	<View style={[
+		{height}, 
+		fill && {backgroundColor: fill}
+	]} />
 )
-
-const background = {
-	backgroundColor: '#ff8000'
-}
 
 VerticalSeparator.propTypes = {
 	height: PropTypes.number,
