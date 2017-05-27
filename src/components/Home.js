@@ -17,7 +17,7 @@ import { VerticalSeparator } from './common/VerticalSeparator'
 
 export default class Home extends Component {
   render() {
-		const {result, increment, onSubtract, onAdd, onResetResult, onIncrementChange, isLocked} = this.props
+		const {result, increment, onSubtract, onAdd, onResetResult, onIncrementChange, isLocked, isResetBtnOnRightSide} = this.props
     return (
       <ScrollView style={styles.container}>
 
@@ -29,9 +29,9 @@ export default class Home extends Component {
 							onPress={() => onResetResult()}
 							disabled={!true}
 							activeOpacity={.6}
-							style={styles.resetBtn}
+							style={[styles.resetBtn, isResetBtnOnRightSide ? styles.resetBtnRight : styles.resetBtnLeft]}
 						>
-							<Text style={styles.resetBtnText}> reset</Text>
+							<Text style={styles.resetBtnText}>reset</Text>
 						</TouchableOpacity>
 						
 					<View style={styles.result}> 
@@ -97,15 +97,25 @@ const styles = StyleSheet.create({
 		height: 50
 	},
 	resultContainer: {
+		position: 'relative',
 		flexDirection: 'row',
 		alignSelf: 'stretch',
     justifyContent: 'center',
     alignItems: 'center',
+		height: 120,
+		// backgroundColor: 'deepskyblue'
 	},
 	resetBtn: {
-		alignSelf: 'center',
-		left: -70,
-		borderRadius: 3
+		position: 'absolute',
+		borderWidth: 1,
+		borderRadius: 3,
+		borderColor: '#e0e0d1'
+	},
+	resetBtnLeft: {
+		left: 30
+	},
+	resetBtnRight: {
+		right: 30
 	},
 	resetBtnText: {
 		fontSize: 18,
@@ -117,7 +127,7 @@ const styles = StyleSheet.create({
 		padding: 20,
 		borderRadius: 3,
 		backgroundColor: '#9a67ea',
-		right: 30
+		// right: 30
 	},
 	resultText: {
 		color: '#fff',
@@ -151,8 +161,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
 	sliderTrack: {
-		height: 15,
-		backgroundColor: 'red',
+		height: 15
 	},
 	lockerIcon: {
 		width: 50, 

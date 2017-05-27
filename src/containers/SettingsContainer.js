@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
-import { toggleAdd, toggleSubtract, toggleSlider } from '../actions'
+import { toggleAdd, toggleSubtract, toggleSlider, changeResetBtnPosition } from '../actions'
 import Settings from '../components/Settings'
 
 
 const mapStateToProps = (state) => {
   return {
-		isLocked: state.isLocked
+		isLocked: state.isLocked,
+		isResetBtnOnRightSide: state.isResetBtnOnRightSide
   }
 }
 
@@ -19,6 +20,9 @@ const mapDispatchToProps = (dispatch) => {
     },
 		onToggleSlider: (bool) => {
       dispatch(toggleSlider(bool))
+    },
+		onChangeResetBtnPosition: (bool) => {
+      dispatch(changeResetBtnPosition(bool))
     }
   }
 }

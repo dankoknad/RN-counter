@@ -10,18 +10,19 @@ import {
 	Switch
 } from 'react-native';
 
+import CheckBox from 'react-native-checkbox';
+
 import { VerticalSeparator } from './common/VerticalSeparator'
 
 export default class Info extends Component {
   render() {
-		const {isLocked, onToggleAdd, onToggleSubtract, onToggleSlider} = this.props
-		console.log(isLocked);
+		const {isLocked, onToggleAdd, onToggleSubtract, onToggleSlider, onChangeResetBtnPosition, isResetBtnOnRightSide} = this.props
     return (
       <ScrollView style={styles.container}>
 				<VerticalSeparator height={50}/>
 				
 				<Text style={[styles.instructions, styles.bigText]}>
-          Enable/disable buttons
+          Buttons
         </Text>
 
 				<VerticalSeparator height={10}/>
@@ -47,7 +48,16 @@ export default class Info extends Component {
           	value={isLocked.slider}
 					/>
 				</View>
-
+				<View style={[styles.switchBtnRow]}>
+					<Text style={styles.mediumText}>Move reset button to the right</Text>
+					<CheckBox
+						label={false}
+						checkboxStyle={{position: 'relative', left: 15}}
+						checked={isResetBtnOnRightSide}
+						onChange={(checked) => onChangeResetBtnPosition(!checked)}
+					/>					
+				</View>
+				
 				<VerticalSeparator height={30} />
 				
 				<View style={styles.fullWidth}>
@@ -68,17 +78,17 @@ export default class Info extends Component {
 				</View>
 
 				<View style={styles.fullWidth}>
-					<Text style={[styles.instructions, styles.bigText]}>
+					<Text style={[styles.instructions, styles.mediumText]}>
 						Todo:
 					</Text>
 					<VerticalSeparator height={10}/>
-					<Text style={styles.mediumText}>
-						1. allow position righ for reset button
+					<Text >
+						1. add option for locking reset button
 					</Text>
-					<Text style={styles.mediumText}>
+					<Text>
 						2. add sound (+ on/off) on pressing the buttons
 					</Text>
-					<Text style={styles.mediumText}>
+					<Text>
 						3. slider settings controls
 					</Text>
 

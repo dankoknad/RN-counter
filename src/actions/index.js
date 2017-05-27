@@ -27,7 +27,6 @@ export const changeIncrement = (value) => {
   }
 }
 
-// TOGGLE_ADD
 export const toggleAdd = (bool) => {
   return {
     type: 'TOGGLE_ADD',
@@ -35,7 +34,6 @@ export const toggleAdd = (bool) => {
   }
 }
 
-// TOGGLE_SUBTRACT
 export const toggleSubtract = (bool) => {
   return {
     type: 'TOGGLE_SUBTRACT',
@@ -43,10 +41,16 @@ export const toggleSubtract = (bool) => {
   }
 }
 
-// TOGGLE_SLIDER
 export const toggleSlider = (bool) => {
   return {
     type: 'TOGGLE_SLIDER',
+    bool: bool
+  }
+}
+
+export const changeResetBtnPosition = (bool) => {
+  return {
+    type: 'CHANGE_RESET_BTN_POSITION',
     bool: bool
   }
 }

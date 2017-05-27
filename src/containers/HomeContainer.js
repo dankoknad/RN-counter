@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
   return {
 		result: state.result,
 		increment: state.increment,
-		isLocked: state.isLocked
+		isLocked: state.isLocked,
+		isResetBtnOnRightSide: state.isResetBtnOnRightSide
   }
 }
 
