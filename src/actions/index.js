@@ -27,6 +27,13 @@ export const changeIncrement = (value) => {
   }
 }
 
+export const toggleReset = (bool) => {
+  return {
+    type: 'TOGGLE_RESET',
+    bool: bool
+  }
+}
+
 export const toggleAdd = (bool) => {
   return {
     type: 'TOGGLE_ADD',

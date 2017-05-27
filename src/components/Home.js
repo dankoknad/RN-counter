@@ -25,7 +25,7 @@ export default class Home extends Component {
 				
 				<View style={styles.resultContainer}>
 
-					<TouchableOpacity 
+					{isLocked.resetBtn || <TouchableOpacity 
 							onPress={() => onResetResult()}
 							disabled={!true}
 							activeOpacity={.6}
@@ -33,7 +33,7 @@ export default class Home extends Component {
 						>
 							<Text style={styles.resetBtnText}>reset</Text>
 						</TouchableOpacity>
-						
+					}	
 					<View style={styles.result}> 
 						<Text style={styles.resultText}>
 							{result}

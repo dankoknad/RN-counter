@@ -1,4 +1,5 @@
 const initState = {
+	resetBtn: false,
 	addBtn: false,
 	subtractBtn: false,
 	slider: false
@@ -6,7 +7,9 @@ const initState = {
 
 const toggleLock = (state = initState, action) => {
   switch (action.type) {
-    case 'TOGGLE_ADD':
+    case 'TOGGLE_RESET':
+      return {...state, resetBtn: action.bool}
+		case 'TOGGLE_ADD':
       return {...state, addBtn: action.bool}
 		case 'TOGGLE_SUBTRACT':
       return {...state, subtractBtn: action.bool}

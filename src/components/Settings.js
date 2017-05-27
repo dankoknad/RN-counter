@@ -14,7 +14,7 @@ import { VerticalSeparator } from './common/VerticalSeparator'
 
 export default class Info extends Component {
   render() {
-		const {isLocked, onToggleAdd, onToggleSubtract, onToggleSlider, onChangeResetBtnPosition, isResetBtnOnRightSide} = this.props
+		const {isLocked, onToggleReset, onToggleAdd, onToggleSubtract, onToggleSlider, onChangeResetBtnPosition, isResetBtnOnRightSide} = this.props
     return (
       <ScrollView style={styles.container}>
 				<VerticalSeparator height={50}/>
@@ -48,14 +48,20 @@ export default class Info extends Component {
 				</View>
 
 				<VerticalSeparator height={1} fill={'#e0e0d1'} />
-				
 				<View style={[styles.switchBtnRow]}>
-					<Text style={styles.mediumText}>Move reset button to the right</Text>
+					<Text style={styles.mediumText}>{isResetBtnOnRightSide ? 'Move reset button to the left' : 'Move reset button to the right'}</Text>
 					<Switch 
 						onValueChange={(bool) => onChangeResetBtnPosition(bool)}
           	value={isResetBtnOnRightSide}
 					/>
 				</View>
+				<View style={styles.switchBtnRow}>
+					<Text style={styles.mediumText}>{(isLocked.resetBtn) ? 'Show reset button' : 'Hide reset button'}</Text>
+					<Switch 
+						onValueChange={(bool) => onToggleReset(bool)}
+          	value={isLocked.resetBtn}
+					/>
+				</View>				
 				
 				<VerticalSeparator height={30} />
 				
@@ -81,14 +87,11 @@ export default class Info extends Component {
 						Todo:
 					</Text>
 					<VerticalSeparator height={10}/>
-					<Text >
-						1. add option for locking reset button
+					<Text>
+						1. add sound (+ on/off) on pressing the buttons
 					</Text>
 					<Text>
-						2. add sound (+ on/off) on pressing the buttons
-					</Text>
-					<Text>
-						3. slider settings controls
+						2. slider settings controls
 					</Text>
 
 				</View>
