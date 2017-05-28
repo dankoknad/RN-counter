@@ -49,9 +49,6 @@ export default class Info extends Component {
 
 				<VerticalSeparator height={1} fill={'#e0e0d1'} />
 
-
-
-
 				<View style={[styles.switchBtnRow]}>
 					<Text style={styles.mediumText}>Swap '-' and '+' buttons</Text>
 					<Switch 
@@ -59,11 +56,6 @@ export default class Info extends Component {
           	value={isSwapBtnsPositionOn}
 					/>
 				</View>
-
-
-
-
-
 				<View style={[styles.switchBtnRow]}>
 					<Text style={styles.mediumText}>Move reset button to the right</Text>
 					<Switch 
