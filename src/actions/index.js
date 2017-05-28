@@ -30,34 +30,41 @@ export const changeIncrement = (value) => {
 export const toggleReset = (bool) => {
   return {
     type: 'TOGGLE_RESET',
-    bool: bool
+    bool
   }
 }
 
 export const toggleAdd = (bool) => {
   return {
     type: 'TOGGLE_ADD',
-    bool: bool
+    bool
   }
 }
 
 export const toggleSubtract = (bool) => {
   return {
     type: 'TOGGLE_SUBTRACT',
-    bool: bool
+    bool
   }
 }
 
 export const toggleSlider = (bool) => {
   return {
     type: 'TOGGLE_SLIDER',
-    bool: bool
+    bool
   }
 }
 
 export const changeResetBtnPosition = (bool) => {
   return {
     type: 'CHANGE_RESET_BTN_POSITION',
-    bool: bool
+    bool
+  }
+}
+
+export const swapButtons = (bool) => {
+  return {
+    type: 'SWAP_BUTTONS',
+    bool
   }
 }

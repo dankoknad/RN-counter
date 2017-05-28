@@ -17,7 +17,7 @@ import { VerticalSeparator } from './common/VerticalSeparator'
 
 export default class Home extends Component {
   render() {
-		const {result, increment, onSubtract, onAdd, onResetResult, onIncrementChange, isLocked, isResetBtnOnRightSide} = this.props
+		const {result, increment, onSubtract, onAdd, onResetResult, onIncrementChange, isLocked, isResetBtnOnRightSide, isSwapBtnsPositionOn} = this.props
     return (
       <ScrollView style={styles.container}>
 
@@ -61,7 +61,7 @@ export default class Home extends Component {
 					disabled={isLocked.slider}
 				/>
 
-				<View style={styles.btnsContainer}>
+				<View style={[styles.btnsContainer, isSwapBtnsPositionOn && styles.btnsContainerReverse]}>
 					<TouchableOpacity
 						onPress={() => onSubtract(result, increment)}
 						activeOpacity={.6}
@@ -144,13 +144,17 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-around',
 		marginHorizontal: 50,
 	},
+	btnsContainerReverse: {
+		flexDirection: 'row-reverse',
+	},
 	button: {
+		minWidth: 100,
+		paddingVertical: 20,
 		backgroundColor: '#9a67ea',
-		borderRadius: 3,
-		justifyContent: 'center'
+		borderRadius: 3
 	},
 	btnText: {
-		padding: 20,
+		textAlign: 'center',
 		fontSize: 18,
 		color: '#fff',
 	},

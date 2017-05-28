@@ -1,12 +1,13 @@
 import { connect } from 'react-redux'
-import { toggleReset, toggleAdd, toggleSubtract, toggleSlider, changeResetBtnPosition } from '../actions'
+import { toggleReset, toggleAdd, toggleSubtract, toggleSlider, changeResetBtnPosition, swapButtons } from '../actions'
 import Settings from '../components/Settings'
 
 
 const mapStateToProps = (state) => {
   return {
 		isLocked: state.isLocked,
-		isResetBtnOnRightSide: state.isResetBtnOnRightSide
+		isResetBtnOnRightSide: state.isResetBtnOnRightSide,
+		isSwapBtnsPositionOn: state.isSwapBtnsPositionOn
   }
 }
 
@@ -26,6 +27,9 @@ const mapDispatchToProps = (dispatch) => {
     },
 		onChangeResetBtnPosition: (bool) => {
       dispatch(changeResetBtnPosition(bool))
+    },
+		onSwapButtons: (bool) => {
+      dispatch(swapButtons(bool))
     }
   }
 }

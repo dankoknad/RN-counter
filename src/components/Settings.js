@@ -14,7 +14,7 @@ import { VerticalSeparator } from './common/VerticalSeparator'
 
 export default class Info extends Component {
   render() {
-		const {isLocked, onToggleReset, onToggleAdd, onToggleSubtract, onToggleSlider, onChangeResetBtnPosition, isResetBtnOnRightSide} = this.props
+		const {isLocked, onToggleReset, onToggleAdd, onToggleSubtract, onToggleSlider, onChangeResetBtnPosition, isResetBtnOnRightSide, isSwapBtnsPositionOn, onSwapButtons} = this.props
     return (
       <ScrollView style={styles.container}>
 				<VerticalSeparator height={50}/>
@@ -26,21 +26,21 @@ export default class Info extends Component {
 				<VerticalSeparator height={10}/>
 
 				<View style={styles.switchBtnRow}>
-					<Text style={styles.mediumText}>{(isLocked.addBtn) ? 'Unlock add button' : 'Lock add button'}</Text>
+					<Text style={styles.mediumText}>Lock add button</Text>
 					<Switch 
 						onValueChange={(bool) => onToggleAdd(bool)}
           	value={isLocked.addBtn}
 					/>
 				</View>
 				<View style={styles.switchBtnRow}>
-					<Text style={styles.mediumText}>{(isLocked.subtractBtn) ? 'Unlock subtract button' : 'Lock subtract button'}</Text>
+					<Text style={styles.mediumText}>Lock subtract button</Text>
 					<Switch 
 						onValueChange={(bool) => onToggleSubtract(bool)}
           	value={isLocked.subtractBtn}
 					/>
 				</View>
 				<View style={styles.switchBtnRow}>
-					<Text style={styles.mediumText}>{(isLocked.slider) ? 'Unlock increment step slider' : 'Lock increment step slider'}</Text>
+					<Text style={styles.mediumText}>Lock increment step slider</Text>
 					<Switch 
 						onValueChange={(bool) => onToggleSlider(bool)}
           	value={isLocked.slider}
@@ -48,15 +48,31 @@ export default class Info extends Component {
 				</View>
 
 				<VerticalSeparator height={1} fill={'#e0e0d1'} />
+
+
+
+
 				<View style={[styles.switchBtnRow]}>
-					<Text style={styles.mediumText}>{isResetBtnOnRightSide ? 'Move reset button to the left' : 'Move reset button to the right'}</Text>
+					<Text style={styles.mediumText}>Swap '-' and '+' buttons</Text>
+					<Switch 
+						onValueChange={(bool) => onSwapButtons(bool)}
+          	value={isSwapBtnsPositionOn}
+					/>
+				</View>
+
+
+
+
+
+				<View style={[styles.switchBtnRow]}>
+					<Text style={styles.mediumText}>Move reset button to the right</Text>
 					<Switch 
 						onValueChange={(bool) => onChangeResetBtnPosition(bool)}
           	value={isResetBtnOnRightSide}
 					/>
 				</View>
 				<View style={styles.switchBtnRow}>
-					<Text style={styles.mediumText}>{(isLocked.resetBtn) ? 'Show reset button' : 'Hide reset button'}</Text>
+					<Text style={styles.mediumText}>Hide reset button</Text>
 					<Switch 
 						onValueChange={(bool) => onToggleReset(bool)}
           	value={isLocked.resetBtn}
