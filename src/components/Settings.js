@@ -14,7 +14,7 @@ import { VerticalSeparator } from './common/VerticalSeparator'
 
 export default class Info extends Component {
   render() {
-		const {isLocked, onToggleReset, onToggleAdd, onToggleSubtract, onToggleSlider, onChangeResetBtnPosition, isResetBtnOnRightSide, isSwapBtnsPositionOn, onSwapButtons} = this.props
+		const {isLocked, onToggleReset, onToggleAdd, onToggleSubtract, onToggleSlider, onChangeResetBtnPosition, isResetBtnOnRightSide, isSwapBtnsPositionOn, onSwapButtons, increment} = this.props
     return (
       <ScrollView style={styles.container}>
 				<VerticalSeparator height={50}/>
@@ -24,7 +24,8 @@ export default class Info extends Component {
         </Text>
 
 				<VerticalSeparator height={10}/>
-
+				{/*<VerticalSeparator height={1} fill={'#e0e0d1'} />*/}
+				
 				<View style={styles.switchBtnRow}>
 					<Text style={styles.mediumText}>Lock add button</Text>
 					<Switch 
@@ -46,9 +47,6 @@ export default class Info extends Component {
           	value={isLocked.slider}
 					/>
 				</View>
-
-				<VerticalSeparator height={1} fill={'#e0e0d1'} />
-
 				<View style={[styles.switchBtnRow]}>
 					<Text style={styles.mediumText}>Swap '-' and '+' buttons</Text>
 					<Switch 
@@ -83,6 +81,9 @@ export default class Info extends Component {
 					</Text>
 					<Text style={styles.mediumText}>
 						Max value: 10
+					</Text>
+					<Text style={styles.mediumText}>
+						Increment value: {increment}
 					</Text>
 					<Text style={styles.mediumText}>
 						Steps: 1
@@ -139,7 +140,9 @@ const styles = StyleSheet.create({
 		flexDirection: 'row', 
 		justifyContent: 'space-between', 
 		alignItems: 'center', 
-		height: 50
+		height: 60,
+		borderBottomWidth: 1,
+		borderColor: '#e0e0d1'
 	}
 });
 
